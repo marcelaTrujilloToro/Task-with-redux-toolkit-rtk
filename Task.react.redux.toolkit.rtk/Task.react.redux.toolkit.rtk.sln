@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task.react.redux.toolkit.rtk", "Task.react.redux.toolkit.rtk.csproj", "{8599DC9E-7B07-490E-AC30-53FFB647A3AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8599DC9E-7B07-490E-AC30-53FFB647A3AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8599DC9E-7B07-490E-AC30-53FFB647A3AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8599DC9E-7B07-490E-AC30-53FFB647A3AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8599DC9E-7B07-490E-AC30-53FFB647A3AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {378C620D-FCE9-4E48-A07F-7D8EC8430ADB}
+	EndGlobalSection
+EndGlobal
