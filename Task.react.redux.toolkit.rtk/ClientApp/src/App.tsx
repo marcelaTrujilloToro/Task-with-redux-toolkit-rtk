@@ -1,16 +1,35 @@
-import * as React from 'react';
-import { Route } from 'react-router';
-import Layout from './components/Layout';
-import Home from './components/Home';
-import Counter from './components/Counter';
-import FetchData from './components/FetchData';
+import React, { useMemo } from "react";
+import { createTheme, ThemeProvider } from "@mui/material";
+import ColorModeContext from "./contexts/ColorModeContext";
+import { AppRuter } from "./routes/AppRuter";
 
-import './custom.css'
 
-export default () => (
-    <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
-        <Route path='/fetch-data/:startDateIndex?' component={FetchData} />
-    </Layout>
-);
+export default () => {
+  const [mode, setMode] = React.useState<"light" | "dark">("light");
+
+  const toggleColorMode = () => {
+    setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+  };
+
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode,
+        },
+        typography: {
+          fontFamily: "Avenir",
+        },
+      }),
+    [mode]
+  );
+  return (
+  
+      <ColorModeContext.Provider value={{ toggleColorMode }}>
+        <ThemeProvider theme={theme}>
+          <AppRuter />
+        </ThemeProvider>
+      </ColorModeContext.Provider>
+     
+  );
+};
