@@ -1,19 +1,20 @@
-import { Grid, Typography } from '@mui/material';
-import React from 'react'
-import { Form } from '../../Components/Form/Form';
-import { useParams } from 'react-router';
+import { Grid, Typography } from "@mui/material";
+import React from "react";
+import { Form } from "../../Components/Form/Form";
+import { useParams } from "react-router";
+import { useGetTaskByIdQuery } from "../../../Api/task.api.slice";
 
-interface FormEditParams{
-    id: string
+interface FormEditParams {
+  id: string;
 }
 
 const EditTask = () => {
+  const { id } = useParams<FormEditParams>();
 
-    const {id} = useParams<FormEditParams>();
+  const { data } = useGetTaskByIdQuery(id);
 
-
-    return (
-        <>
+  return (
+    <>
       <Typography variant="h4">Edit task</Typography>
       <Grid
         container
@@ -23,19 +24,21 @@ const EditTask = () => {
         alignContent="center"
       >
         <Grid item xs={12} sm={6} md={4}>
-          {/* <Form
-            task={{
-              name: task.name,
-              description: task.description,
-              duration: task.duration,
-              status: task.status,
-              id: task.id,
-            }}
-            option="edit"
-          /> */}
+          {data && (
+            <Form
+              task={{
+                name: data.name,
+                description: data.description,
+                duration: data.duration,
+                status: data.status,
+                id: data.id,
+              }}
+              option="edit"
+            />
+          )}
         </Grid>
       </Grid>
     </>
-    )
+  );
 };
 export default EditTask;

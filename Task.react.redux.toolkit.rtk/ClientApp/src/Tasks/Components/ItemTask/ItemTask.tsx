@@ -8,10 +8,12 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-import EditIcon from '@mui/icons-material/Edit';
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { blue } from "@mui/material/colors";
 import { Task } from "../../types/task";
 import { useHistory } from "react-router";
+import { useDeleteTaskMutation } from "../../../Api/task.api.slice";
 
 type ItemTaskProps = {
   task: Task;
@@ -19,6 +21,12 @@ type ItemTaskProps = {
 
 export const ItemTask: React.FC<ItemTaskProps> = (props) => {
   const history = useHistory();
+
+  const [deleteTask] = useDeleteTaskMutation();
+  
+  const onDelete  = () => {
+    deleteTask(props.task);
+  }
 
   return (
     <Card sx={{ flexGrow: 1, maxWidth: 300 }}>
@@ -51,15 +59,21 @@ export const ItemTask: React.FC<ItemTaskProps> = (props) => {
         )}
       </CardContent>
       <CardActions>
-        <IconButton 
+        <IconButton
           color="secondary"
           onClick={() => {
-                 
-                  history.push({
-                    pathname: `/editTask/${props.task.id}`,
-                  });
-                }}>
+            history.push({
+              pathname: `/editTask/${props.task.id}`,
+            });
+          }}
+        >
           <EditIcon />
+        </IconButton>
+        <IconButton
+          color="error"
+          onClick={onDelete}
+        >
+          <DeleteIcon />
         </IconButton>
       </CardActions>
     </Card>

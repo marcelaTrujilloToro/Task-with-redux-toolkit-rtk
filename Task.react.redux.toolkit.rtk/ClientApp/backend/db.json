@@ -15,15 +15,8 @@
       "id": "2"
     },
     {
-      "name": "task 3",
-      "description": "are many variations of passages of Lorem Ipsum available",
-      "duration": "2",
-      "status": "inProgress",
-      "id": "3"
-    },
-    {
       "name": "task 5",
-      "description": "task 5 decription ",
+      "description": "task 5 task 5 ",
       "duration": "1",
       "status": "inProgress",
       "id": "5"
@@ -55,13 +48,6 @@
       "duration": "2",
       "status": "toDo",
       "id": "9"
-    },
-    {
-      "name": "task 10 ",
-      "description": "Lorem ok like readable English. Many desktop publishing packages and web page.",
-      "duration": "3",
-      "status": "inProgress",
-      "id": "10"
     }
   ]
 }

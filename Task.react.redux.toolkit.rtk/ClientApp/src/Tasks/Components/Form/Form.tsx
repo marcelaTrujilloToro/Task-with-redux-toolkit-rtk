@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { StatusTask, Task } from "../../types/task";
 import { useForm } from "react-hook-form";
+import { useSaveTaskMutation, useUpdateTaskMutation } from "../../../Api/task.api.slice";
 
 interface FormProps {
   task: Task;
@@ -21,7 +22,9 @@ export const Form: React.FC<FormProps> = (props) => {
 
   const [data, setData] = useState(props.task);
 
+  const [updateTask] = useUpdateTaskMutation();
 
+  const[saveTask] = useSaveTaskMutation();
 
   const {
     register,
@@ -38,9 +41,9 @@ export const Form: React.FC<FormProps> = (props) => {
 
   const submitForm = () => {
     if (props.option === "create") {
-      
-    }else {
-      
+      saveTask(data);
+    }else if(props.option === "edit"){
+      updateTask(data);
     }
   };
 
